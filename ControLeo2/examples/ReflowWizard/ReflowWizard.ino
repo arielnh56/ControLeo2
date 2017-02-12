@@ -116,7 +116,7 @@
 
 // ***** TYPE DEFINITIONS *****
 
-ControLeo2_LiquidCrystal lcd;
+LiquidCrystal_PCF8574 lcd(0x27);
 
 int mode = 0;
 
@@ -134,6 +134,7 @@ void setup() {
   }
   // Set up the LCD's number of rows and columns 
   lcd.begin(16, 2);
+  lcd.setBacklight(255);
   // Create the degree symbol for the LCD - you can display this with lcd.print("\1") or lcd.write(1)
   unsigned char degree[8]  = {12,18,18,12,0,0,0,0};
   lcd.createChar(1, degree);
@@ -185,7 +186,7 @@ void loop()
     if (drawMenu) {
       drawMenu = false;
       lcdPrintLine(0, modes[mode]);
-      lcdPrintLine_P(1, PSTR("          Yes ->"));
+      lcdPrintLine_P(1, PSTR(""));
     }
     
     // Update the temperature roughtly once per second

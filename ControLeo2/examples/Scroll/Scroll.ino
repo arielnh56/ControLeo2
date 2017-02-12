@@ -22,7 +22,7 @@
  */
 
 #include <ControLeo2.h>
-ControLeo2_LiquidCrystal lcd;
+LiquidCrystal_PCF8574 lcd(0x27);
 ControLeo2_MAX31855 thermocouple;
 
 
@@ -40,6 +40,7 @@ void setup() {
   }
   // Set up the LCD's number of rows and columns 
   lcd.begin(16, 2);
+  lcd.setBacklight(255);
   // Create the degree symbol for the LCD
   unsigned char degree[8]  = {12,18,18,12,0,0,0,0};
   lcd.createChar(0, degree);

@@ -43,11 +43,11 @@ const char *phaseDescription[] = {"", "Presoak", "Soak", "Reflow", "Waiting", "C
 const char *bakingPhaseDescription[] = {"", "Heating", "Baking", "", "Cooling", ""};
 
 // Tunes used to indication various actions or status
-#define TUNE_STARTUP                         0
+#define TUNE_STARTUP                         B11100111
 #define TUNE_TOP_BUTTON_PRESS                1
-#define TUNE_BOTTOM_BUTTON_PRESS             2
-#define TUNE_REFLOW_DONE                     3
-#define TUNE_REMOVE_BOARDS                   4
+#define TUNE_BOTTOM_BUTTON_PRESS             1
+#define TUNE_REFLOW_DONE                     B10101010
+#define TUNE_REMOVE_BOARDS                   B10101010
 #define MAX_TUNES                            5
 
 // EEPROM settings

@@ -181,8 +181,8 @@ boolean Config() {
       if (drawMenu) {
         drawMenu = false;
         if (getSetting(SETTING_LEARNING_MODE) == false) {
-          lcdPrintLine_P(0, PSTR("Restart learning"));
-          lcdPrintLine_P(1, PSTR("mode?      No ->"));
+          lcdPrintLine_P(0, PSTR("Restart"));
+          lcdPrintLine_P(1, PSTR("learning mode?"));
         }
         else
         {
@@ -193,12 +193,12 @@ boolean Config() {
       
       // Was a button pressed?
       switch (getButton()) {
-        case CONTROLEO_BUTTON_TOP:
+        case CONTROLEO_BUTTON_BOTTOM:
           // Turn learning mode on
           setSetting(SETTING_LEARNING_MODE, true);
           drawMenu = true;
           break;
-        case CONTROLEO_BUTTON_BOTTOM:
+        case CONTROLEO_BUTTON_TOP:
             // Go to the next phase
             setupPhase++;
        }
@@ -208,12 +208,12 @@ boolean Config() {
       if (drawMenu) {
         drawMenu = false;
         lcdPrintLine_P(0, PSTR("Restore factory"));
-        lcdPrintLine_P(1, PSTR("settings?  No ->"));
+        lcdPrintLine_P(1, PSTR("settings?"));
       }
       
       // Was a button pressed?
       switch (getButton()) {
-        case CONTROLEO_BUTTON_TOP:
+        case CONTROLEO_BUTTON_BOTTOM:
           // Reset EEPROM to factory
           lcdPrintLine_P(0, PSTR("Please wait ..."));
           lcdPrintLine_P(1, PSTR(""));
@@ -221,7 +221,7 @@ boolean Config() {
           InitializeSettingsIfNeccessary();
 
           // Intentional fall-through
-        case CONTROLEO_BUTTON_BOTTOM:
+        case CONTROLEO_BUTTON_TOP:
             // Go to the next phase
             setupPhase++;
        }
